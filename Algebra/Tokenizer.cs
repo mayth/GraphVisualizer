@@ -21,7 +21,7 @@ namespace Algebra
             // トークン分割の目印になる文字。これが現れたらその直前でトークンとして切り出す。この文字自体は単独のトークンとする。
             char[] tokenBreakCharacter = new char[]
             {
-                '+', '-', '*', '/', '^', '(', ')', '[', ']'
+                '+', '-', '*', '/', '^', '(', ')'
             };
             
             List<Token> result = new List<Token>();
