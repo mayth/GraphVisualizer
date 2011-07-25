@@ -1,0 +1,169 @@
+﻿<Window x:Class="GraphVisualizer.GraphColorSettingDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gv="clr-namespace:GraphVisualizer"
+        Title="GraphColorSettingDialog" Height="420" Width="300"
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <gv:PositiveDoubleValueValidationRule x:Key="PositiveDoubleValueValidationRule" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static gv:GraphColorSettingDialog.ColorChangeCommand}" Executed="ColorChangeCommandExecuted" />
+    </Window.CommandBindings>
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
+            <Button IsCancel="True">キャンセル</Button>
+            <Separator Width="20" Visibility="Hidden" />
+            <Button Name="okButton" Padding="25, 0" Click="okButton_Click">OK</Button>
+        </StackPanel>
+        <DockPanel Name="mainPanel" Margin="4">
+            <Rectangle HorizontalAlignment="Stretch" Fill="DarkGray" Height="2" DockPanel.Dock="Bottom" />
+            <StackPanel>
+                <!-- graph panel-->
+                <Border Margin="10, 2.5" CornerRadius="15" Background="White">
+                    <Border.BitmapEffect>
+                        <DropShadowBitmapEffect ShadowDepth="2" Color="Gray" />
+                    </Border.BitmapEffect>
+                    <StackPanel Margin="5">
+                        <DockPanel>
+                            <Rectangle HorizontalAlignment="Stretch" Height="1" Fill="Aqua" Margin="20, 0" DockPanel.Dock="Bottom" />
+                            <TextBlock>グラフ線</TextBlock>
+                        </DockPanel>
+                        <Grid Width="150" HorizontalAlignment="Left" Margin="10, 2, 0, 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0">描画色</TextBlock>
+                            <Rectangle Grid.Column="1" Grid.Row="0" Fill="{Binding GraphBrush}" Stroke="Black" />
+                            <Button Grid.Column="2" Grid.Row="0" Command="{x:Static gv:GraphColorSettingDialog.ColorChangeCommand}" CommandParameter="Graph">変更</Button>
+
+                            <TextBlock Grid.Column="0" Grid.Row="1">太さ</TextBlock>
+                            <TextBox Grid.Column="1" Grid.Row="1">
+                                <Binding Path="GraphThickness">
+                                    <Binding.ValidationRules>
+                                        <gv:PositiveDoubleValueValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                
+                <!-- axis panel -->
+                <Border Margin="10, 2.5" CornerRadius="15" Background="White">
+                    <Border.BitmapEffect>
+                        <DropShadowBitmapEffect ShadowDepth="2" Color="Gray" />
+                    </Border.BitmapEffect>
+                    <StackPanel Margin="5">
+                        <DockPanel>
+                            <Rectangle HorizontalAlignment="Stretch" Height="1" Fill="Aqua" Margin="20, 0" DockPanel.Dock="Bottom" />
+                            <TextBlock>軸線</TextBlock>
+                        </DockPanel>
+                        <Grid Width="150" HorizontalAlignment="Left" Margin="10, 2, 0, 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0">描画色</TextBlock>
+                            <Rectangle Grid.Column="1" Grid.Row="0" Fill="{Binding AxisLineBrush}" Stroke="Black" />
+                            <Button Grid.Column="2" Grid.Row="0" Command="{x:Static gv:GraphColorSettingDialog.ColorChangeCommand}" CommandParameter="Axis">変更</Button>
+
+                            <TextBlock Grid.Column="0" Grid.Row="1">太さ</TextBlock>
+                            <TextBox Grid.Column="1" Grid.Row="1">
+                                <Binding Path="AxisLineThickness">
+                                    <Binding.ValidationRules>
+                                        <gv:PositiveDoubleValueValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- grid panel -->
+                <Border Margin="10, 2.5" CornerRadius="15" Background="White">
+                    <Border.BitmapEffect>
+                        <DropShadowBitmapEffect ShadowDepth="2" Color="Gray" />
+                    </Border.BitmapEffect>
+                    <StackPanel Margin="5">
+                        <DockPanel>
+                            <Rectangle HorizontalAlignment="Stretch" Height="1" Fill="Aqua" Margin="20, 0" DockPanel.Dock="Bottom" />
+                            <TextBlock>目盛り線</TextBlock>
+                        </DockPanel>
+                        <Grid Width="150" HorizontalAlignment="Left" Margin="10, 2, 0, 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0">描画色</TextBlock>
+                            <Rectangle Grid.Column="1" Grid.Row="0" Fill="{Binding GridLineBrush}" Stroke="Black" />
+                            <Button Grid.Column="2" Grid.Row="0" Command="{x:Static gv:GraphColorSettingDialog.ColorChangeCommand}" CommandParameter="GridLine">変更</Button>
+
+                            <TextBlock Grid.Column="0" Grid.Row="1">太さ</TextBlock>
+                            <TextBox Grid.Column="1" Grid.Row="1">
+                                <Binding Path="GridLineThickness">
+                                    <Binding.ValidationRules>
+                                        <gv:PositiveDoubleValueValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- sub grid panel -->
+                <Border Margin="10, 2.5" CornerRadius="15" Background="White">
+                    <Border.BitmapEffect>
+                        <DropShadowBitmapEffect ShadowDepth="2" Color="Gray" />
+                    </Border.BitmapEffect>
+                    <StackPanel Margin="5">
+                        <DockPanel>
+                            <Rectangle HorizontalAlignment="Stretch" Height="1" Fill="Aqua" Margin="20, 0" DockPanel.Dock="Bottom" />
+                            <TextBlock>補助目盛り線</TextBlock>
+                        </DockPanel>
+                        <Grid Width="150" HorizontalAlignment="Left" Margin="10, 2, 0, 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0">描画色</TextBlock>
+                            <Rectangle Grid.Column="1" Grid.Row="0" Fill="{Binding SubGridLineBrush}" Stroke="Black" />
+                            <Button Grid.Column="2" Grid.Row="0" Command="{x:Static gv:GraphColorSettingDialog.ColorChangeCommand}" CommandParameter="SubGridLine">変更</Button>
+
+                            <TextBlock Grid.Column="0" Grid.Row="1">太さ</TextBlock>
+                            <TextBox Grid.Column="1" Grid.Row="1">
+                                <Binding Path="SubGridLineThickness">
+                                    <Binding.ValidationRules>
+                                        <gv:PositiveDoubleValueValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </DockPanel>
+    </DockPanel>
+</Window>

@@ -1,0 +1,54 @@
+﻿<Window x:Class="GraphVisualizer.FunctionInputDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gv="clr-namespace:GraphVisualizer"
+        Title="FunctionInputDialog" Height="300" Width="300"
+        Loaded="Window_Loaded">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}"
+                        CanExecute="CalculatorButtonCommandCanExecute" Executed="CalculatorButtonCommandExecuted" />
+        <CommandBinding Command="{x:Static gv:FunctionInputDialog.OKCommand}"
+                        CanExecute="OKCommandCanExecute" Executed="OKCommandExecuted" />
+    </Window.CommandBindings>
+
+    <DockPanel>
+        <TextBox Name="functionPreviewText"
+                 DockPanel.Dock="Top"
+                 FontSize="24" FontFamily="Times New Roman"
+                 VerticalAlignment="Center"
+                 TextChanged="functionPreviewText_TextChanged"
+                 KeyDown="functionPreviewText_KeyDown"/>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button IsCancel="True">キャンセル</Button>
+            <Separator Width="25" Visibility="Hidden" />
+            <Button Command="{x:Static gv:FunctionInputDialog.OKCommand}" Padding="25, 0">OK</Button>
+        </StackPanel>
+        <UniformGrid Columns="5" Rows="5" Margin="10">
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="+">_+</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="-">_-</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="*">_*</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="/">_/</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="^">_^</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="7">_7</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="8">_8</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="9">_9</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="e">_e</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="sin">sin</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="4">_4</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="5">_5</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="6">_6</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" ToolTip="円周率" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="pi">π</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="cos">cos</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="1">_1</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="2">_2</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="3">_3</Button>
+            <Button FontSize="20" Margin="3" ToolTip="Back Space" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="bs">BS</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="tan">tan</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="0">_0</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter=".">_.</Button>
+            <Button FontSize="22" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="(">_(</Button>
+            <Button FontSize="22" FontFamily="Times New Roman" Margin="3" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter=")">_)</Button>
+            <Button FontSize="24" FontFamily="Times New Roman" Margin="3" ToolTip="自然対数" Command="{x:Static gv:FunctionInputDialog.CalculatorButtonCommand}" CommandParameter="ln">ln</Button>
+        </UniformGrid>
+    </DockPanel>
+</Window>
