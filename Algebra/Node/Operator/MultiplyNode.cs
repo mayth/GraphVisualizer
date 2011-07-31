@@ -23,5 +23,14 @@ namespace Algebra
         {
             return Left.EvaluateNode(parameter) * Right.EvaluateNode(parameter);
         }
+
+        /// <summary>
+        /// このノードの文字列形式を取得します。
+        /// </summary>
+        /// <returns>このノードの文字列形式</returns>
+        public override string ToString()
+        {
+            return string.Format("Multiply[{0}, {1}]", Left.ToString(), Right.ToString());
+        }
     }
 }
