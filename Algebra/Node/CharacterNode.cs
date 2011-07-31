@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Algebra
 {
+    /// <summary>
+    /// 文字ノードを表します。
+    /// </summary>
     class CharacterNode : Node
     {
         private char _character;

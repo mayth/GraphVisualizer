@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Algebra
 {
+    /// <summary>
+    /// 正弦関数ノードを表します。
+    /// </summary>
     class SinNode : FunctionNode
     {
         /// <summary>

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Algebra
 {
+    /// <summary>
+    /// 累乗演算子ノードを表します。
+    /// </summary>
     class PowerNode : OperatorNode
     {
         /// <summary>

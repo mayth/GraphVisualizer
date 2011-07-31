@@ -5,10 +5,13 @@ using System.Text;
 
 namespace Algebra
 {
+    /// <summary>
+    /// 自然対数ノードを表します。
+    /// </summary>
     class LogNode : FunctionNode
     {
         /// <summary>
-        /// 自然対数関数ノードを初期化します。
+        /// 自然対数ノードを初期化します。
         /// </summary>
         /// <param name="functionExpression">関数に与える式を表すノード</param>
         public LogNode(Node functionExpression) : base(functionExpression) { }

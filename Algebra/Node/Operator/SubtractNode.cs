@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Algebra
 {
+    /// <summary>
+    /// 減算演算子ノードを表します。
+    /// </summary>
     class SubtractNode : OperatorNode
     {
         /// <summary>

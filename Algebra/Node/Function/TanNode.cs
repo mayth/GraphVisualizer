@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Algebra
 {
+    /// <summary>
+    /// 正接関数ノードを表します。
+    /// </summary>
     class TanNode : FunctionNode
     {
         /// <summary>

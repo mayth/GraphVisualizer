@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Algebra
 {
+    /// <summary>
+    /// 加算演算子ノードを表します。
+    /// </summary>
     class PlusNode : OperatorNode
     {
         /// <summary>

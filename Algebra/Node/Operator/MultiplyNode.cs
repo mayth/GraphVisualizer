@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Algebra
 {
+    /// <summary>
+    /// 乗算演算子ノードを表します。
+    /// </summary>
     class MultiplyNode : OperatorNode
     {
         /// <summary>

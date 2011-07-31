@@ -5,16 +5,25 @@ using System.Text;
 
 namespace Algebra
 {
+    /// <summary>
+    /// 演算子ノードを表す抽象クラスです。
+    /// </summary>
     abstract class OperatorNode : Node
     {
         private Node _left;
         private Node _right;
 
+        /// <summary>
+        /// 左側演算対象ノードを取得します。
+        /// </summary>
         public Node Left
         {
             get { return _left; }
         }
 
+        /// <summary>
+        /// 右側演算対象ノードを取得します。
+        /// </summary>
         public Node Right
         {
             get { return _right; }

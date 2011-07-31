@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Algebra
 {
+    /// <summary>
+    /// 余弦関数ノードを表します。
+    /// </summary>
     class CosNode : FunctionNode
     {
         /// <summary>

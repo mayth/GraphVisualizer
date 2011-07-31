@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Algebra
 {
+    /// <summary>
+    /// 数値ノードを表します。
+    /// </summary>
 	class NumberNode : Node
 	{
         double _value;

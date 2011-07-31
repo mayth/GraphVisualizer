@@ -5,10 +5,16 @@ using System.Text;
 
 namespace Algebra
 {
+    /// <summary>
+    /// 関数ノードを表す抽象クラスです。
+    /// </summary>
     abstract class FunctionNode : Node
     {
         private Node _funcExpr;
 
+        /// <summary>
+        /// 関数に与える式を表すノードを取得します。
+        /// </summary>
         public Node FunctionExpression
         {
             get { return _funcExpr; }
