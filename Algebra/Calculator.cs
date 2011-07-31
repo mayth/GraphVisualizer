@@ -39,8 +39,11 @@ namespace Algebra
         /// 文字列で表された式を使用して<see cref="Calculator"/>クラスを初期化します。
         /// </summary>
         /// <param name="expression">式</param>
+        /// <exception cref="ArgumentNullException"><paramref name="expression"/>がnullか空か、空白のみで構成されています。</exception>
         public Calculator(string expression)
         {
+            if (string.IsNullOrWhiteSpace(expression))
+                throw new ArgumentNullException("expression");
             rootNode = Node.Parse(Tokenizer.Tokenize(expression));
             Parameter = new Dictionary<char, double>();
         }
@@ -86,7 +89,7 @@ namespace Algebra
         /// <returns>このノードの式を計算するのに必要な文字のリスト。文字が必要でない場合は空のコレクションを返します。</returns>
         public ICollection<char> GetCharacters()
         {
-            return rootNode.GetCharactersBase();
+            return rootNode.GetCharacters();
         }
 
         /// <summary>
