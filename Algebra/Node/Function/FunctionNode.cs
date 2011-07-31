@@ -26,6 +26,10 @@ namespace Algebra
             _funcExpr = functionExpression;
         }
 
+        /// <summary>
+        /// このノードの式を計算するのに必要な文字を取得します。
+        /// </summary>
+        /// <returns>このノードの式を計算するのに必要な文字のリスト。文字が必要でない場合は空のコレクションを返します。</returns>
         public override ICollection<char> GetCharactersBase()
         {
             return FunctionExpression.GetCharactersBase();
