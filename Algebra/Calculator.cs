@@ -26,8 +26,7 @@ namespace Algebra
         /// <param name="expression">式</param>
         public Calculator(string expression)
         {
-            rootNode = new Node();
-            rootNode.Parse(Tokenizer.Tokenize(expression));
+            rootNode = Node.Parse(Tokenizer.Tokenize(expression));
             Parameter = new Dictionary<char, double>();
         }
 
@@ -53,8 +52,7 @@ namespace Algebra
         {
             if (string.IsNullOrWhiteSpace(expression))
                 throw new ArgumentNullException("expression", "式がnullか空、もしくは空白のみです。");
-            rootNode = new Node();
-            rootNode.Parse(Tokenizer.Tokenize(expression));
+            rootNode = Node.Parse(Tokenizer.Tokenize(expression));
         }
 
         /// <summary>
@@ -71,9 +69,9 @@ namespace Algebra
         /// このノードの式を計算するのに必要な文字を取得します。
         /// </summary>
         /// <returns>このノードの式を計算するのに必要な文字のリスト。文字が必要でない場合は空のコレクションを返します。</returns>
-        public List<char> GetCharacters()
+        public ICollection<char> GetCharacters()
         {
-            return rootNode.GetCharacters();
+            return rootNode.GetCharactersBase();
         }
 
         /// <summary>

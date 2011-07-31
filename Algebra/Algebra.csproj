@@ -43,7 +43,20 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="CharacterUnresolvedException.cs" />
-    <Compile Include="Node.cs" />
+    <Compile Include="Node\CharacterNode.cs" />
+    <Compile Include="Node\Function\CosNode.cs" />
+    <Compile Include="Node\Function\FunctionNode.cs" />
+    <Compile Include="Node\Function\LogNode.cs" />
+    <Compile Include="Node\Function\SinNode.cs" />
+    <Compile Include="Node\Function\TanNode.cs" />
+    <Compile Include="Node\Node.cs" />
+    <Compile Include="Node\NumberNode.cs" />
+    <Compile Include="Node\Operator\DivideNode.cs" />
+    <Compile Include="Node\Operator\SubtractNode.cs" />
+    <Compile Include="Node\Operator\MultiplyNode.cs" />
+    <Compile Include="Node\Operator\OperatorNode.cs" />
+    <Compile Include="Node\Operator\PlusNode.cs" />
+    <Compile Include="Node\Operator\PowerNode.cs" />
     <Compile Include="Range.cs" />
     <Compile Include="Token.cs" />
     <Compile Include="Tokenizer.cs" />
