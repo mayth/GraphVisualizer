@@ -122,7 +122,7 @@ namespace Algebra
             else
                 arg = new Dictionary<char, double>();
             arg['e'] = Math.E;
-            for (double d = domain.From; d < domain.To; d += domain.Step)
+            foreach (var d in domain)
             {
                 arg['x'] = d;
                 result.Add(d, rootNode.Evaluate(arg));

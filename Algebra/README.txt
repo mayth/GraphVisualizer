@@ -99,6 +99,10 @@ Reference for Calculator class
 
 
 Reference for Range class
+
+ Summary: The class that represents a domain.
+ Range class implements IEnumerable<double>
+
  --- Constructor ---
 	Range()
  Summary: Initialize Range class that represents empty range.
@@ -116,7 +120,14 @@ Reference for Range class
   to: The ending value of the range.
   step: The step value.
 
- * Public Static Methods
+ --- Public Methods ---
+	IEnumerator<double> GetEnumerator()
+ Summary: Get enumerator.
+
+	IEnumerator IEnumerable.GetEnumerator()
+ Summary: Get enumerator.
+
+ --- Public Static Methods ---
 	bool IsEmpty(Range range)
  Summary: Check whether <range> represents empty range or not.
  Parameters:

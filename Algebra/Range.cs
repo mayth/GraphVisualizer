@@ -21,9 +21,9 @@ using System.Text;
 namespace Algebra
 {
     /// <summary>
-    /// 数の範囲を示す構造体です。
+    /// 数の範囲を示すクラスです。
     /// </summary>
-    public struct Range
+    public class Range : IEnumerable<double>
     {
         /// <summary>
         /// 開始値
@@ -39,12 +39,21 @@ namespace Algebra
         public double Step { get; set; }
 
         /// <summary>
-        /// 開始値と終値を指定して<see cref="Range"/>構造体を初期化します。
+        /// 空の<see cref="Range"/>クラスを初期化します。
+        /// </summary>
+        public Range()
+        {
+            From = 0.0;
+            To = 0.0;
+            Step = 0.0;
+        }
+
+        /// <summary>
+        /// 開始値と終値を指定して<see cref="Range"/>クラスを初期化します。
         /// </summary>
         /// <param name="from">開始値</param>
         /// <param name="to">終値</param>
         public Range(double from, double to)
-            : this()
         {
             From = from;
             To = to;
@@ -52,13 +61,12 @@ namespace Algebra
         }
 
         /// <summary>
-        /// 開始値と終値、変化量を指定して<see cref="Range"/>構造体を初期化します。
+        /// 開始値と終値、変化量を指定して<see cref="Range"/>クラスを初期化します。
         /// </summary>
         /// <param name="from">開始値</param>
         /// <param name="to">終値</param>
         /// <param name="step">変化量</param>
         public Range(double from, double to, double step)
-            : this()
         {
             From = from;
             To = to;
@@ -73,6 +81,24 @@ namespace Algebra
         public static bool IsEmpty(Range range)
         {
             return range.From == 0.0 && range.To == 0.0 && range.Step == 0.0;
+        }
+
+        /// <summary>
+        /// 開始値から終値までを列挙する列挙子を返します。
+        /// </summary>
+        public IEnumerator<double> GetEnumerator()
+        {
+            for (double d = From; d <= To; d += Step)
+                yield return d;
+        }
+
+        /// <summary>
+        /// 開始値から終値までを列挙する列挙子を返します。
+        /// </summary>
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            for (double d = From; d <= To; d += Step)
+                yield return d;
         }
     }
 }
