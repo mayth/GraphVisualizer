@@ -280,6 +280,12 @@ namespace Algebra
         }
         #endregion
 
+        /// <summary>
+        /// 与えられたトークン列を解析して、このノードに格納します。
+        /// </summary>
+        /// <param name="tokens">解析するトークン列</param>
+        /// <returns>解析に成功した場合はtrue、そうでない場合はfalseを返します。</returns>
+        /// <exception cref="FormatException">関数でも、定数でも、1文字でもない文字トークンが存在します。</exception>
         public bool Parse(IList<Token> tokens)
         {
             return ParseBase(RemoveParenthesis(tokens));
@@ -376,11 +382,11 @@ namespace Algebra
             }
 
             left = new Node();
-            if (!left.ParseBase(RemoveParenthesis(tokens.Take(operatorPosition).ToList())))
+            if (!left.Parse(tokens.Take(operatorPosition).ToList()))
                 return false;
 
             right = new Node();
-            if (!right.ParseBase(RemoveParenthesis(tokens.Skip(operatorPosition + 1).ToList())))
+            if (!right.Parse(tokens.Skip(operatorPosition + 1).ToList()))
                 return false;
 
             return true;
