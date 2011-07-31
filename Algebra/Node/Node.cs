@@ -74,7 +74,6 @@ namespace Algebra
                 }
             }
             #endregion
-
             Node left = Node.Parse(tokens.Take(operatorPosition).ToList());
             Node right = Node.Parse(tokens.Skip(operatorPosition + 1).ToList());
 
@@ -95,6 +94,11 @@ namespace Algebra
             }
         }
 
+        /// <summary>
+        /// このノードの値を計算します。
+        /// </summary>
+        /// <param name="parameter">計算に使用するパラメータの辞書</param>
+        /// <returns>計算結果</returns>
         internal abstract double EvaluateNode(IDictionary<char, double> parameter);
 
         /// <summary>
@@ -102,11 +106,6 @@ namespace Algebra
         /// </summary>
         /// <param name="parameter">計算に使用するパラメータの辞書</param>
         /// <returns>計算結果</returns>
-        /// <exception cref="InvalidOperationException">
-        /// 演算子ノードにおいて、オペランドが存在しません。
-        /// または、関数ノードにおいて、関数の種類が不正です。
-        /// または、ノードの種類が不正です。
-        /// </exception>
         public double Evaluate(IDictionary<char, double> parameter)
         {
             Dictionary<char, double> param = new Dictionary<char, double>(parameter);
