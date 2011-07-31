@@ -35,7 +35,7 @@ namespace Algebra
             // 演算子位置取得
             int operatorPosition = GetOperatorPosition(tokens);
 
-            #region If can't find operator
+            #region can't find operator
             if (operatorPosition == -1)
             {
                 if (tokens.Count == 1)
@@ -74,24 +74,28 @@ namespace Algebra
                 }
             }
             #endregion
-            Node left = Node.Parse(tokens.Take(operatorPosition).ToList());
-            Node right = Node.Parse(tokens.Skip(operatorPosition + 1).ToList());
-
-            switch (tokens[operatorPosition].Type)
+            else
             {
-                case TokenType.Plus:
-                    return new PlusNode(left, right);
-                case TokenType.Minus:
-                    return new SubtractNode(left, right);
-                case TokenType.Multiply:
-                    return new MultiplyNode(left, right);
-                case TokenType.Divide:
-                    return new DivideNode(left, right);
-                case TokenType.Power:
-                    return new PowerNode(left, right);
-                default:
-                    throw new InvalidOperationException("演算子の検出に失敗しました。演算子位置のトークンが演算子トークンではありません。");
+                Node left = Node.Parse(tokens.Take(operatorPosition).ToList());
+                Node right = Node.Parse(tokens.Skip(operatorPosition + 1).ToList());
+
+                switch (tokens[operatorPosition].Type)
+                {
+                    case TokenType.Plus:
+                        return new PlusNode(left, right);
+                    case TokenType.Minus:
+                        return new SubtractNode(left, right);
+                    case TokenType.Multiply:
+                        return new MultiplyNode(left, right);
+                    case TokenType.Divide:
+                        return new DivideNode(left, right);
+                    case TokenType.Power:
+                        return new PowerNode(left, right);
+                    default:
+                        throw new InvalidOperationException("演算子の検出に失敗しました。演算子位置のトークンが演算子トークンではありません。");
+                }
             }
+            throw new InvalidOperationException("ノードの種別を特定できませんでした。");
         }
 
         /// <summary>
